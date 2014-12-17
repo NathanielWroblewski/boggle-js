@@ -1,0 +1,73 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(26,188,156);
+  color: white;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.container {
+  width: 430px;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Mountains of Christmas', cursive;
+}
+
+h1 {
+  font-size: 72px;
+}
+
+h2 {
+  font-size: 36px;
+  margin-top: 0;
+}
+
+#boggle .board div {
+  height: 100px;
+  width: 100px;
+  border: 3px solid #444;
+  float: left;
+  background-color: white;
+  border-radius: 10px;
+  color: #444;
+  font-size: 26px;
+  line-height: 100px;
+  font-family: 'Helvetica', san-serif;
+  font-weight: bold;
+}
+
+#boggle div:nth-child(4n + 1) {
+  clear: both;
+}
+
+input {
+  margin: 50px 0;
+  width: 200px;
+  height: 30px;
+  font-size: 26px;
+  color: #444;
+  border: 0px;
+  border-bottom: 2px solid #444;
+  outline: none;
+  background-color: rgb(26,188,156);
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.warning {
+  background-color: rgb(246,36,89);
+  color: white;
+  margin: 0 auto;
+  padding: 5px;
+  font-size: 26px;
+}

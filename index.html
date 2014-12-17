@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Boggle</title>
+    <!-- FONTS -->
+    <link href='http://fonts.googleapis.com/css?family=Mountains+of+Christmas' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Libre+Baskerville' rel='stylesheet' type='text/css'>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="public/stylesheets/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>boggle</h1>
+      <div id="boggle">
+        <div class="board"></div>
+        <form>
+          <input type="text" autofocus="true"></input>
+          <div class="warning not-on-board hidden">That word is not on the board!</div>
+          <div class="warning not-in-dictionary hidden">That word is not in our dictionary!</div>
+          <div class="warning already-guessed hidden">You already guessed that word!</div>
+          <input type="submit" class="hidden"></input>
+        </form>
+        <h2>score <span class="score">0</span></h2>
+        <a href="/"><h2>shake</h2></a>
+      </div>
+    </div>
+  </body>
+
+  <!-- JAVASCRIPT LIBRARIES -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="public/javascripts/lib/jquery.min.js">\x3C/script>')</script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+  <script>window._ || document.write('<script src="public/javascripts/lib/lodash.js">\x3C/script>')</script>
+
+  <!-- APPLICATION JAVASCRIPT -->
+  <script src="public/javascripts/namespace.js"></script>
+  <script src="public/javascripts/models/board.js"></script>
+  <script src="public/javascripts/models/dictionaries/english.js"></script>
+  <script src="public/javascripts/views/game.js"></script>
+  <script src="public/javascripts/boggle.js"></script>
+</html>
