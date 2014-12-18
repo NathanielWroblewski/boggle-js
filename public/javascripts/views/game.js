@@ -15,10 +15,10 @@ Boggle.Views.Game = function() {
   this.setListeners = function() {
     var self = this
     this.$el.find('a').on('mouseenter', function(){
-      $(this).animate({fontSize: '+=5px'})
+      $(this).find('h2').animate({fontSize: '+=10px'})
     })
     this.$el.find('a').on('mouseleave', function(){
-      $(this).animate({fontSize: '-=5px'})
+      $(this).find('h2').animate({fontSize: '-=10px'})
     })
     this.$el.find('form').on('submit', function(e) {
       e.preventDefault()
@@ -29,7 +29,7 @@ Boggle.Views.Game = function() {
   this.template = function(model) {
     var template = ''
     _.each(model.board, function(die) {
-      template += '<div>' + die.letter + '</div>'
+      template += '<div data-coord="' + die.coordinate + '">' + die.letter + '</div>'
     })
     return template
   },
@@ -44,6 +44,7 @@ Boggle.Views.Game = function() {
     ) {
       this.alreadyGuessed.push(word)
       this.incrementScore()
+      this.highlightWord()
       this.clearWord()
     } else if (!this.model.hasWord(word)) {
       this.$el.find('.not-on-board').show()
@@ -73,6 +74,17 @@ Boggle.Views.Game = function() {
 
   this.clearWord = function() {
     this.$el.find('input[type="text"]').val('')
+  },
+
+  this.highlightWord = function() {
+    var $dice = this.$el.find('.board div')
+    $dice.css({ backgroundColor: 'rgb(255,255,255)' })
+    $dice.removeClass('color-fade').addClass('white-out')
+    _.each(this.model.lastWordCoordinates, function(coord) {
+      var $die = this.$el.find('.board div[data-coord="' + String(coord) + '"]')
+      $die.css({backgroundColor: 'rgba(224,130,131,0.7)'})
+      $die.addClass('color-fade')
+    }, this)
   },
 
   this.render = function() {

@@ -29,6 +29,22 @@ h2 {
   margin-top: 0;
 }
 
+.color-fade {
+  -moz-transition: background .2s ease-in;
+  -o-transition: background .2s ease-in;
+  -webkit-transition: background .2s ease-in;
+  transition: background .2s ease-in;
+  background-color: rgba(224,130,131,0.7);
+}
+
+.white-out {
+  -moz-transition: background .2s ease-in;
+  -o-transition: background .2s ease-in;
+  -webkit-transition: background .2s ease-in;
+  transition: background .2s ease-in;
+  background-color: rgb(255,255,255);
+}
+
 #boggle .board div {
   height: 100px;
   width: 100px;
@@ -48,7 +64,7 @@ h2 {
 }
 
 input {
-  margin: 50px 0;
+  margin: 50px 0 5px 0;
   width: 200px;
   height: 30px;
   font-size: 26px;

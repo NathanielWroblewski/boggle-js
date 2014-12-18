@@ -15,9 +15,10 @@ Boggle.Models.Board = function() {
   ],
 
   this.board = [],
+  this.lastWordCoordinates = [],
 
   this.shake = function() {
-    var rolledDice = _.map(this.dice, function(die) { return die[_.random(5)]})
+    var rolledDice = _.map(this.dice, function(die) { return die[_.random(5)] })
       , shuffledDice = _.shuffle(rolledDice)
 
     this.board = _.map(shuffledDice, function(letter, index) {
@@ -34,7 +35,10 @@ Boggle.Models.Board = function() {
   },
 
   this.checkNeighbors = function(nextLetters, coord, blacklist) {
-    if (nextLetters.length === 0) return true
+    if (nextLetters.length === 0) {
+      this.lastWordCoordinates = blacklist.concat([coord])
+      return true
+    }
     blacklist = typeof blacklist !== 'undefined' ? blacklist : []
     var result = _.find(this.neighbors, function(neighbor) {
       var nextCoordinate = [neighbor[0] + coord[0], neighbor[1] + coord[1]]
